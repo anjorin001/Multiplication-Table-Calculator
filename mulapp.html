@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication app</title>
+    <style>
+      body{
+         display: flex;
+         flex-direction: column;
+         height: 100vh;
+         justify-content: center;
+         align-items: center;
+         font-family: Georgia, 'Times New Roman', Times, serif;
+         background-color:  rgb(230, 225, 219);
+      }
+      .container{
+         border: 2px solid burlywood;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         padding: 10px;
+         background-color: bisque;
+         border-radius: 10px;
+      }
+      .container h1, p{
+         color: brown;
+      }
+      .container button{
+         padding: 10px;
+         background-color: brown;
+         color: burlywood;
+         border-radius: 8px;
+        font-size: medium;
+        border-style: none;
+      }
+      button:hover{
+         background-color: rgb(152, 53, 53);
+         color: rgb(242, 213, 175);
+      }
+    </style>
+</head>
+<body>   
+   <div class="container">
+    <h1>Multiplication table</h1>
+    <p>Rule: enter a number from 1 to 100</p>
+    <button>Enter number</button>
+    <p id="mul"></p>
+   </div>
+
+</body>
+<script>
+   // i used query selector to acces my button and eventlisner to handle function and activity
+   document.querySelector('button').addEventListener('click',function(event){
+      event.preventDefault()
+      let num = Number(prompt('Enter number'));
+
+      //used if else to prevent entry of in-valid inputs
+     if (num < 1 ||num > 100 || isNaN(num)){
+         alert('number should be between 1 to 100')
+         return;
+      }
+      //usse .map() to access tables and calculation of each numbers ....
+      const table = [1,2,3,4,5];
+      const  mull = table.map(cal =>`${num} x ${cal} = ${num * cal} `).join('<br>');
+      document.getElementById('mul').innerHTML = `Multiplication Table of ${num}: <br>  ${mull}`
+   }) 
+
+
+</script>
+</html>
