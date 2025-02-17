@@ -44,7 +44,7 @@
 <body>   
    <div class="container">
     <h1>Multiplication table</h1>
-    <p>Rule: enter a number from 1 to 100</p>
+    <p>Rule: enter a number</p>
     <button>Enter number</button>
     <p id="mul"></p>
    </div>
@@ -57,8 +57,8 @@
       let num = Number(prompt('Enter number'));
 
       //used if else to prevent entry of in-valid inputs
-     if (num < 1 ||num > 100 || isNaN(num)){
-         alert('number should be between 1 to 100')
+     if (num < 1 ||num > 9999999 || isNaN(num)){
+         alert('Enter a valid number')
          return;
       }
       //usse .map() to access tables and calculation of each numbers ....
